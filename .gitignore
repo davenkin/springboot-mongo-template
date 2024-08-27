@@ -32,6 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 
-### Temprary files ###
+### Temparary files ###
 tmp.txt
 tmp.json
