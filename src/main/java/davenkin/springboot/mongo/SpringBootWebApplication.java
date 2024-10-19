@@ -1,13 +1,13 @@
-package davenkin.springboot.mongo.template;
+package davenkin.springboot.mongo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootMongoTemplateApplication {
+public class SpringBootWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootMongoTemplateApplication.class, args);
+		SpringApplication.run(SpringBootWebApplication.class, args);
 	}
 
 }

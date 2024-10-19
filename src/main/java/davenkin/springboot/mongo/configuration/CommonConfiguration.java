@@ -1,4 +1,4 @@
-package davenkin.springboot.mongo.template.configuration;
+package davenkin.springboot.mongo.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

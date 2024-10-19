@@ -1,4 +1,4 @@
-package davenkin.springboot.mongo.template.user;
+package davenkin.springboot.mongo.user;
 
 import lombok.Getter;
 import org.springframework.data.annotation.Id;

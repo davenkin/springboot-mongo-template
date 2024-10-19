@@ -1,8 +1,8 @@
-package davenkin.springboot.mongo.template.helloworld;
+package davenkin.springboot.mongo.about;
 
-import davenkin.springboot.mongo.template.user.User;
-import davenkin.springboot.mongo.template.user.UserApplicationService;
-import davenkin.springboot.mongo.template.user.UserRepository;
+import davenkin.springboot.mongo.user.User;
+import davenkin.springboot.mongo.user.UserApplicationService;
+import davenkin.springboot.mongo.user.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class HelloWorldControllerTest {
+public class AboutControllerTest {
     @Autowired
     private UserRepository userRepository;
 

@@ -1,4 +1,4 @@
-package davenkin.springboot.mongo.template.configuration;
+package davenkin.springboot.mongo.configuration;
 
 import de.flapdoodle.embed.mongo.commands.MongodArguments;
 import de.flapdoodle.embed.mongo.config.Storage;
