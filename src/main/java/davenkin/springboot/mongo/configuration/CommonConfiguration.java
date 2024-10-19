@@ -7,6 +7,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.MongoTransactionManager;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.convert.MongoConverter;
+
+import static com.mongodb.ReadPreference.secondaryPreferred;
+import static com.mongodb.WriteConcern.MAJORITY;
+import static org.springframework.data.mongodb.core.WriteResultChecking.EXCEPTION;
 
 @Configuration
 public class CommonConfiguration {
@@ -22,4 +28,15 @@ public class CommonConfiguration {
                     .visibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         };
     }
+
+    @Bean
+    MongoTemplate mongoTemplate(MongoDatabaseFactory mongoDbFactory, MongoConverter converter) {
+        MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory, converter);
+        mongoTemplate.setWriteConcern(MAJORITY);
+        mongoTemplate.setWriteConcernResolver(action -> MAJORITY);
+        mongoTemplate.setWriteResultChecking(EXCEPTION);
+        mongoTemplate.setReadPreference(secondaryPreferred());
+        return mongoTemplate;
+    }
+
 }
