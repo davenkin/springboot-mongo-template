@@ -2,4 +2,6 @@
 
 git add .
 
-git commit -m "upate"
+git commit -m "update"
+
+git push
