@@ -1,23 +1,16 @@
-version: "2"
-services:
-  mongodb_dev:
-    restart: always
-    container_name: local-mongo
-    image: mongo:4.2.7-bionic
-    networks:
-      - local-mongo-net
-    environment:
-      - "MONGO_INITDB_DATABASE=local-mongo"
-    volumes:
-      - local-mongo-volume:/data/db
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-    command: --bind_ip_all --replSet rs0
-    ports:
-      - "27017:27017"
-networks:
-  local-mongo-net:
-    driver: bridge
+version: '2'
 
-volumes:
-  local-mongo-volume:
-    driver: local
+services:
+  mongodb:
+    image: mongo:7
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    command: mongod --replSet rs0
+    healthcheck:
+      test: |
+        mongosh --eval "try { rs.status().ok } catch (e) { rs.initiate({ _id: 'rs0', members: [{ _id: 0, host: 'localhost:27017' }] }).ok }"
+      start_period: 0s
+      interval: 500ms
+      timeout: 5s
+      retries: 5
